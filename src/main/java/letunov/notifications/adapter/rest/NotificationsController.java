@@ -18,27 +18,28 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/notifications")
 @ContractProvider
-//public class NotificationsController implements SendOrderStatusNotificationContract, SendConfirmationNotificationContract,
-//    SendProfileUpdateNotificationContract, SendWelcomeNotificationContract {
 public class NotificationsController implements SendOrderStatusNotificationContract, SendConfirmationNotificationContract,
-    SendProfileUpdateNotificationContract {
-//    @Override
-//    @PostMapping("/order-status")
-//    public ResponseEntity<Void> sendOrderStatusNotification(@RequestBody OrderStatusDto orderStatusDto) {
-//        return ResponseEntity.ok().build();
-//    }
+    SendProfileUpdateNotificationContract, SendWelcomeNotificationContract {
+//public class NotificationsController implements SendOrderStatusNotificationContract, SendConfirmationNotificationContract,
+//    SendProfileUpdateNotificationContract {
 
     @Override
     @PostMapping("/order-status")
-    public ResponseEntity<Void> sendOrderStatusNotificationChanged(@RequestBody OrderStatusDto orderStatusDto) {
+    public ResponseEntity<Void> sendOrderStatusNotification(@RequestBody OrderStatusDto orderStatusDto) {
         return ResponseEntity.ok().build();
     }
 
 //    @Override
-//    @PostMapping("/welcome")
-//    public ResponseEntity<Void> sendWelcomeNotification(@RequestBody WelcomeDto welcomeDto) {
+//    @PostMapping("/order-status")
+//    public ResponseEntity<Void> sendOrderStatusNotificationChanged(@RequestBody OrderStatusDto orderStatusDto) {
 //        return ResponseEntity.ok().build();
 //    }
+
+    @Override
+    @PostMapping("/welcome")
+    public ResponseEntity<Void> sendWelcomeNotification(@RequestBody WelcomeDto welcomeDto) {
+        return ResponseEntity.ok().build();
+    }
 
     @Override
     @PostMapping("/profile-update")
